@@ -19,5 +19,24 @@ angular.module("customFilters", [])
                 return data;
             }
         }
-    }
-)
+    })
+    .filter("pageCount", function (SizePerPage) {
+        return function (data) {
+            if (angular.isArray(data)) {
+                var PageCount = Math.ceil(data.length / SizePerPage);
+                var result = [];
+                for (var i = 1; i <= PageCount; i++) {
+                    result.push(i);
+                }
+                return result;
+            } else {
+                return data;
+            }
+        }
+    })
+    .filter("productInPage", function () {
+        return function (data,selectedPage) {
+
+        }
+    })
+

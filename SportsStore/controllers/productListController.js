@@ -3,8 +3,12 @@
  */
 angular.module("sportsStore")
     .constant("productListActiveClass","btn-primary")
-    .controller("productListCtrl", function ($scope, $filter, productListActiveClass) {
+    .constant("SizePerPage",3)
+    .controller("productListCtrl", function ($scope, $filter, productListActiveClass, SizePerPage) {
         var selectedCategory = null;
+
+        $scope.selectedPage=1;
+
         $scope.selectCategory = function (newCategory) {
             selectedCategory = newCategory;
         }
@@ -16,4 +20,11 @@ angular.module("sportsStore")
         $scope.getCategoryClass = function(category){
             return selectedCategory == category ? productListActiveClass : "";
         }
+
+        $scope.selectPage = function(newPage){
+            $scope.selectedPage = newPage;
+        }
+
+
+
     })
