@@ -47,13 +47,7 @@ angular.module("sportsStore").controller("sportsStoreCtrl", function ($scope) {
                 "category": "Chess",
                 "price": 29.95,
                 "id": "adb34321b57508a2"
-            }, {
-                "name": "Human Chess Board",
-                "description": "A fun game for the family",
-                "category": "Chess",
-                "price": 75,
-                "id": "204e08b8383918cb"
-            }, {
+            },  {
                 "name": "Bling-Bling King",
                 "description": "Gold-plated, diamond-studded King",
                 "category": "Chess",

@@ -11,6 +11,7 @@ angular.module("sportsStore")
 
         $scope.selectCategory = function (newCategory) {
             selectedCategory = newCategory;
+            $scope.selectedPage = 1;
         }
 
         $scope.categoryFilterFn = function (product) {
@@ -23,6 +24,10 @@ angular.module("sportsStore")
 
         $scope.selectPage = function(newPage){
             $scope.selectedPage = newPage;
+        }
+
+        $scope.getPagerClass = function (page) {
+            return $scope.selectedPage == page ? productListActiveClass : "";
         }
 
 

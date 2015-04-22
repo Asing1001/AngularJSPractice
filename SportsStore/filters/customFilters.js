@@ -34,9 +34,22 @@ angular.module("customFilters", [])
             }
         }
     })
-    .filter("productInPage", function () {
-        return function (data,selectedPage) {
-
+    .filter("productInPage", function (SizePerPage) {
+        return function (data, selectedPage) {
+            if (angular.isArray(data)) {
+                //var result = [];
+                var start_Index = (selectedPage - 1) * SizePerPage;
+                if (data.length < start_Index) {
+                    return [];
+                }
+                else {
+                    //return data.slice(start_Index, start_Index + SizePerPage);
+                    //return data.splice(start_Index, SizePerPage);
+                    return $filter("limitTo")(data.splice(start_Index), SizePerPage);
+                }
+            } else {
+                return data;
+            }
         }
     })
 
