@@ -34,7 +34,7 @@ angular.module("customFilters", [])
             }
         }
     })
-    .filter("productInPage", function (SizePerPage) {
+    .filter("productInPage",["SizePerPage","$filter", function (SizePerPage,$filter) {
         return function (data, selectedPage) {
             if (angular.isArray(data)) {
                 //var result = [];
@@ -51,5 +51,5 @@ angular.module("customFilters", [])
                 return data;
             }
         }
-    })
+    }])
 

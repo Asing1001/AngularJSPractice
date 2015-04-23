@@ -4,7 +4,7 @@
 angular.module("sportsStore")
     .constant("productListActiveClass","btn-primary")
     .constant("SizePerPage",3)
-    .controller("productListCtrl", function ($scope, $filter, productListActiveClass, SizePerPage) {
+    .controller("productListCtrl", function ($scope, $filter, productListActiveClass) {
         var selectedCategory = null;
 
         $scope.selectedPage=1;
