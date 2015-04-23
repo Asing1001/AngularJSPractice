@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html ng-app="sportsStore">
 <head lang="en">
+    <meta charset="UTF-8">
     <title>SportsStore</title>
     <script src="angular.js"></script>
     <link rel="stylesheet" href="bootstrap.css"/>
     <link rel="stylesheet" href="bootstrap-theme.css"/>
-    <script>angular.module("sportsStore", ["customFilters"])</script>
+    <script>angular.module("sportsStore", ["customFilters", "cart"])</script>
     <script src="controllers/sportsStore.js"></script>
     <script src="filters/customFilters.js"></script>
     <script src="controllers/productListController.js"></script>
     <script src="components/cart/cart.js"></script>
-
-    <meta charset="UTF-8">
-
 </head>
 <body ng-controller="sportsStoreCtrl">
 <div class="navbar navbar-inverse">
     <a class="navbar-brand" href="#">sportstore</a>
+    <cart-summary/>
 </div>
 <div class="alert alert-danger" ng-show="data.error">
     Status: {{data.error.status}}
     <a href="/app.html">Try again</a>
 </div>
 <ng-include src="'views/productList.html'"></ng-include>
-</div>
 </body>
 </html>

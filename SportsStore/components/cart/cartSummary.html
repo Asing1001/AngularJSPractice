@@ -1,0 +1,18 @@
+<style>
+    .navbar-right{
+        float: right;
+        margin-right: 15px;
+    }
+    .navbar-text{
+
+    }
+</style>
+<div class="navbar-right">
+    <div class="navbar-text">
+        <!--<span class="glyphicon glyphicon-shopping-cart"></span>-->
+        <b>Your cart:</b>
+        {{itemCount()}} item(s),
+        {{totalPrice()|currency}}
+    </div>
+    <a href="#/checkout" class="btn btn-default navbar-btn">checkout</a>
+</div>
