@@ -1,0 +1,39 @@
+<div ng-controller="checkoutController">
+    <div class="alert alert-warning"  ng-show="cartData.length==0">
+        There are bo products in your shopping cart.
+        <a class="alert-link" href="#/products">Click here to return to SportsStore</a>
+    </div>
+    <div ng-hide="cartData.length==0" class="col-sm-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="text-center">Product</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Subtotal</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in cartData">
+                <td class="text-center">{{item.name}}</td>
+                <td class="text-center">{{item.count}}</td>
+                <td class="text-center">{{item.price|currency}}</td>
+                <td class="text-center">{{item.count * item.price |currency}}</td>
+                <td><button class="btn btn-sm btn-warning" ng-click="removeProduct(item.id)">remove</button></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">TotalPrice : </td>
+                <td class="text-center">{{totalPrice()|currency}}</td>
+            </tr>
+            </tfoot>
+        </table>
+        <div class="text-center">
+            <a class="btn btn-primary" href="#/product">Continue shopping</a>
+            <a class="btn btn-primary" href="#/placeOrder">Place Order</a>
+        </div>
+    </div>
+</div>
+
