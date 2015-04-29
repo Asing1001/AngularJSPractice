@@ -1,23 +1,43 @@
+<style>
+    .ng-invalid {
+        /*background-color: lightpink;*/
+    }
+
+    .ng-valid {
+        /*background-color: lightgreen;*/
+    }
+
+    span.error {
+        color: red;
+        font-weight: bold;
+    }
+</style>
 <h2>Check out now</h2>
 <p>Please enter your detail</p>
 <form name="shippingForm" novalidate>
-<div class="well">
-    <h3>Ship to</h3>
+    <div class="well">
+        <h3>Ship to</h3>
 
-    <div class="form-group">
-        <label>Name:</label>
-        <input class="form-control" type="text" ng-model="data.shipping.name" required/>
+        <div class="form-group has-feedback" ng-class="{'has-error':shippingForm.name.$error.required} ">
+            <label>Name:</label>
+            <input class="form-control" name="name" type="text" ng-model="data.shipping.name" required/>
+            <span class="error" ng-show="shippingForm.name.$error.required">
+                Please enter a name
+            </span>
+        </div>
+
+        <h3>Address</h3>
+
+        <div class="form-group has-feedback" ng-class="{'has-error':shippingForm.name.$error.required}">
+            <label>Street address:</label>
+            <input class="form-control" name="address" type="text" ng-model="data.shipping.address" required/>
+            <span class="error" ng-show="shippingForm.address.$error.required">
+                Please enter your address
+            </span>
+        </div>
+
+        <div class="text-center">
+            <button ng-click="submitOrder(data.shipping)" ng-disabled="shippingForm.$invalid" class="btn btn-primary">Complete Order</button>
+        </div>
     </div>
-
-    <h3>Address</h3>
-
-    <div class="form-group">
-        <label>Street address:</label>
-        <input class="form-control" type="text" ng-model="data.shipping.name" required/>
-    </div>
-
-    <div class="text-center">
-        <button class="btn btn-primary">Complete Order</button>
-    </div>
-</div>
 </form>

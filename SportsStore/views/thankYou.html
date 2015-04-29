@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div ng-show="data.orderError" class="alert alert-danger">
+    Error {{data.orderError.status}}. The order could not be placed.
+    <a href="#placeOrder" class="alert-link">Click here to try again</a>
+</div>
 
-</body>
-</html>
+<div class="well" ng-hide="data.orderError">
+    <h2>Thanks!</h2>Thank you for placing order. We'll ship your goods as soon as possible.
+    If you need to contact us, use reference  : {{data.orderId}}
+</div>
